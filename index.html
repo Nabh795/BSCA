@@ -3,214 +3,222 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BSCA | Official Website</title>
+    <title>BSCA | Bus Six Cubing Association</title>
     <style>
-        /* Modern CSS Variables for easy editing */
         :root {
-            --primary-color: #2563eb;
-            --secondary-color: #1e40af;
-            --text-dark: #1f2937;
-            --text-light: #f3f4f6;
-            --bg-white: #ffffff;
-            --transition: all 0.3s ease;
+            /* Rubik's Cube Palette */
+            --cube-blue: #0046ad;
+            --cube-green: #009b48;
+            --cube-red: #b71234;
+            --cube-orange: #ff5800;
+            --cube-yellow: #ffd500;
+            --bg-dark: #121212;
+            --card-bg: #1e1e1e;
+            --text-main: #ffffff;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Black Ops One', 'Segoe UI', Arial, sans-serif;
         }
 
         body {
-            background-color: #f9fafb;
-            color: var(--text-dark);
-            line-height: 1.6;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            overflow-x: hidden;
         }
 
         /* Navigation */
         nav {
-            background: var(--bg-white);
-            padding: 1rem 5%;
+            padding: 1.5rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+            border-bottom: 2px solid var(--cube-blue);
         }
 
         .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--primary-color);
-            letter-spacing: 1px;
+            font-size: 1.8rem;
+            font-weight: 900;
+            background: linear-gradient(to right, var(--cube-red), var(--cube-yellow), var(--cube-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .nav-links {
             list-style: none;
             display: flex;
-            gap: 2rem;
+            gap: 1.5rem;
         }
 
         .nav-links a {
             text-decoration: none;
-            color: var(--text-dark);
-            font-weight: 500;
-            transition: var(--transition);
-        }
-
-        .nav-links a:hover {
-            color: var(--primary-color);
+            color: white;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         /* Hero Section */
         .hero {
-            height: 80vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            padding: 100px 5%;
             text-align: center;
-            background: linear-gradient(rgba(37, 99, 235, 0.1), rgba(30, 64, 175, 0.1)), 
-                        url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80');
-            background-size: cover;
-            padding: 0 20px;
+            background: radial-gradient(circle at center, #2c2c2c 0%, #121212 100%);
         }
 
         .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            color: var(--secondary-color);
+            font-size: 4rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            text-shadow: 3px 3px var(--cube-blue);
         }
 
         .hero p {
             font-size: 1.2rem;
-            max-width: 600px;
-            margin-bottom: 2rem;
+            color: #ccc;
+            margin-bottom: 30px;
         }
 
-        .btn {
-            background: var(--primary-color);
-            color: white;
-            padding: 0.8rem 2rem;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1rem;
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .btn:hover {
-            background: var(--secondary-color);
-            transform: translateY(-2px);
-        }
-
-        /* Features Section */
-        .features {
-            padding: 5rem 5%;
+        /* Stats/Competitions Section */
+        .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px 5%;
         }
 
         .card {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            transition: var(--transition);
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 5px solid var(--cube-green);
+            transition: transform 0.3s;
         }
 
         .card:hover {
-            box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+            transform: translateY(-10px);
         }
 
-        /* Footer */
-        footer {
-            background: #111827;
-            color: white;
-            text-align: center;
-            padding: 2rem;
-            margin-top: 2rem;
+        .card h3 {
+            color: var(--cube-yellow);
+            margin-bottom: 15px;
+            text-transform: uppercase;
         }
 
-        /* Modal Style for Welcome */
-        #welcome-toast {
+        .timer-display {
+            font-family: monospace;
+            font-size: 2.5rem;
+            color: var(--cube-green);
+            background: #000;
+            padding: 10px;
+            border-radius: 5px;
+            display: inline-block;
+            margin: 10px 0;
+        }
+
+        /* The Custom "Toast" Notification */
+        #welcome-popup {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: var(--primary-color);
-            color: white;
-            padding: 15px 25px;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--cube-red);
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: bold;
+            box-shadow: 0 0 20px rgba(183, 18, 52, 0.5);
+            z-index: 9999;
             display: none;
-            animation: slideIn 0.5s ease-out;
         }
 
-        @keyframes slideIn {
-            from { transform: translateX(100%); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
+        .btn {
+            background: var(--cube-orange);
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            display: inline-block;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            filter: brightness(1.2);
+            box-shadow: 0 0 15px var(--cube-orange);
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            font-size: 0.8rem;
+            color: #666;
         }
     </style>
 </head>
 <body>
 
+    <div id="welcome-popup">
+        Cube Loaded! Welcome to BSCA 🧩
+    </div>
+
     <nav>
         <div class="logo">BSCA</div>
         <ul class="nav-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="#">Compete</a></li>
+            <li><a href="#">Rankings</a></li>
+            <li><a href="#">Tutorials</a></li>
         </ul>
     </nav>
 
     <section class="hero">
-        <h1>Welcome to BSCA</h1>
-        <p>Providing excellence and innovation for our community through professional leadership and dedicated support.</p>
-        <a href="#explore" class="btn">Explore Our Work</a>
+        <h1>Bus Six Cubing</h1>
+        <p>The elite speedcubing hub for the Bus Six community.</p>
+        <a href="#" class="btn">Start Inspecting</a>
     </section>
 
-    <section class="features" id="explore">
-        <div class="card">
-            <h3>Our Mission</h3>
-            <p>To empower members and drive growth through collaborative initiatives.</p>
+    <div class="grid">
+        <div class="card" style="border-left-color: var(--cube-blue);">
+            <h3>Current PB</h3>
+            <div class="timer-display">05.42s</div>
+            <p>Held by: SpeedCuber_Six</p>
         </div>
-        <div class="card">
-            <h3>Our Vision</h3>
-            <p>Setting the gold standard in organizational management and community service.</p>
-        </div>
-        <div class="card">
-            <h3>Get Involved</h3>
-            <p>Join our growing network of professionals and make a difference today.</p>
-        </div>
-    </section>
 
-    <div id="welcome-toast">
-        👋 Welcome to the official website of BSCA!
+        <div class="card" style="border-left-color: var(--cube-red);">
+            <h3>Next Comp</h3>
+            <p><strong>Bus Six Open 2026</strong></p>
+            <p>Location: Main Terminal</p>
+            <p>Date: Feb 12, 2026</p>
+        </div>
+
+        <div class="card" style="border-left-color: var(--cube-orange);">
+            <h3>Scramble of the Day</h3>
+            <p style="font-family: monospace; background: #000; padding: 10px; margin-top: 10px;">
+                R' U' F L2 D2 B2 L2 U2 R2 F2 L2 F' R' D B2 R U2 B' D2 R2 B' R' U' F
+            </p>
+        </div>
     </div>
 
     <footer>
-        <p>&copy; 2026 BSCA. All rights reserved.</p>
+        <p>BUS SIX CUBING ASSOCIATION &copy; 2026</p>
+        <p>Keep Turning.</p>
     </footer>
 
     <script>
-        // Better UX: Instead of a blocking alert, we use a "toast" notification
+        // Replacing the old alert with a cool top-down notification
         window.onload = function() {
-            const toast = document.getElementById('welcome-toast');
-            toast.style.display = 'block';
+            const popup = document.getElementById('welcome-popup');
+            popup.style.display = 'block';
             
-            // Auto-hide after 5 seconds
+            // Fade out after 3 seconds
             setTimeout(() => {
-                toast.style.opacity = '0';
-                toast.style.transition = 'opacity 1s ease';
-                setTimeout(() => toast.style.display = 'none', 1000);
-            }, 5000);
+                popup.style.transition = 'opacity 0.8s ease';
+                popup.style.opacity = '0';
+                setTimeout(() => popup.style.display = 'none', 800);
+            }, 3000);
         };
     </script>
 </body>
 </html>
+
