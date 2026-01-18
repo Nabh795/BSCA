@@ -6,14 +6,12 @@
     <title>BSCA | Bus Six Cubing Association</title>
     <style>
         :root {
-            /* Rubik's Cube Palette */
             --cube-blue: #0046ad;
             --cube-green: #009b48;
             --cube-red: #b71234;
             --cube-orange: #ff5800;
             --cube-yellow: #ffd500;
-            --bg-dark: #0f0f0f;
-            --card-bg: #1a1a1a;
+            --bg-dark: #0a0a0a;
             --text-main: #ffffff;
         }
 
@@ -21,191 +19,107 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Inter', 'Segoe UI', sans-serif;
         }
 
         body {
             background-color: var(--bg-dark);
             color: var(--text-main);
-            overflow-x: hidden;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-
-        /* Simplified Navigation */
-        nav {
-            padding: 2rem 5%;
-            display: flex;
-            justify-content: center; /* Centered since buttons are gone */
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 2.5rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            background: linear-gradient(to right, var(--cube-red), var(--cube-yellow), var(--cube-green));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 0 10px rgba(255,255,255,0.1));
-        }
-
-        /* Hero Section */
-        .hero {
-            flex: 1;
+            height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            text-align: center;
-            padding: 60px 5%;
+            overflow: hidden;
         }
 
-        .hero h1 {
-            font-size: clamp(2.5rem, 8vw, 5rem);
+        /* Branding */
+        .logo {
+            font-size: 3rem;
+            font-weight: 900;
+            letter-spacing: -1px;
             margin-bottom: 10px;
+            background: linear-gradient(45deg, var(--cube-red), var(--cube-orange), var(--cube-yellow));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .sub-text {
+            color: #666;
             text-transform: uppercase;
-            line-height: 1;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            color: #888;
+            letter-spacing: 5px;
+            font-size: 0.9rem;
             margin-bottom: 40px;
-            letter-spacing: 1px;
         }
 
-        /* Records Button */
+        /* The Records Button */
         .btn-records {
-            background: transparent;
+            background: var(--cube-orange);
             color: white;
-            padding: 15px 40px;
+            padding: 18px 60px;
             text-decoration: none;
-            border-radius: 4px;
-            font-weight: bold;
-            font-size: 1.2rem;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 1.4rem;
             text-transform: uppercase;
             letter-spacing: 2px;
-            border: 2px solid var(--cube-blue);
-            box-shadow: 0 0 15px rgba(0, 70, 173, 0.4);
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
+            box-shadow: 0 10px 20px rgba(255, 88, 0, 0.3);
         }
 
         .btn-records:hover {
-            background: var(--cube-blue);
-            box-shadow: 0 0 30px rgba(0, 70, 173, 0.8);
             transform: scale(1.05);
-        }
-
-        /* Quick Info Grid */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            padding: 40px 5%;
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .card {
-            background: var(--card-bg);
-            padding: 30px;
-            border-radius: 8px;
-            text-align: center;
-            border-bottom: 4px solid var(--cube-orange);
-            transition: 0.3s;
-        }
-
-        .card h3 {
-            color: #555;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            margin-bottom: 10px;
-            letter-spacing: 2px;
-        }
-
-        .stat {
-            font-size: 2.2rem;
-            font-weight: bold;
-            color: var(--cube-green);
-            margin: 10px 0;
+            background: #ff6a1a;
+            box-shadow: 0 15px 30px rgba(255, 88, 0, 0.5);
         }
 
         /* Welcome Notification */
         #welcome-popup {
             position: fixed;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #ffffff;
-            color: #000;
-            padding: 12px 25px;
-            border-radius: 4px;
-            font-weight: bold;
-            z-index: 1000;
+            top: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 100px;
+            font-size: 0.9rem;
+            font-weight: 500;
             display: none;
-            animation: fadeInUp 0.5s ease;
+            animation: fadeInDown 0.6s ease;
         }
 
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translate(-50%, 20px); }
-            to { opacity: 1; transform: translate(-50%, 0); }
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         footer {
-            text-align: center;
-            padding: 30px;
-            font-size: 0.7rem;
-            color: #444;
-            letter-spacing: 1px;
+            position: absolute;
+            bottom: 30px;
+            color: #333;
+            font-size: 0.8rem;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
 
     <div id="welcome-popup">
-        SYSTEM READY // WELCOME TO BSCA
+        WELCOME TO THE OFFICIAL BSCA PORTAL
     </div>
 
-    <nav>
-        <div class="logo">BSCA</div>
-    </nav>
-
-    <section class="hero">
-        <h1>BUS SIX CUBING</h1>
-        <p>Official Hub of the Bus Six Cubing Association</p>
-        <a href="#" class="btn-records">Records</a>
-    </section>
-
-    <div class="grid">
-        <div class="card" style="border-bottom-color: var(--cube-red);">
-            <h3>World Class Speed</h3>
-            <div class="stat">SUB-10</div>
-            <p>Community Standard</p>
-        </div>
-
-        <div class="card" style="border-bottom-color: var(--cube-yellow);">
-            <h3>Active Members</h3>
-            <div class="stat">64+</div>
-            <p>Bus Six Division</p>
-        </div>
-
-        <div class="card" style="border-bottom-color: var(--cube-green);">
-            <h3>Next Event</h3>
-            <div class="stat">FEB 2026</div>
-            <p>Official Meetup</p>
-        </div>
-    </div>
+    <div class="logo">BSCA</div>
+    <div class="sub-text">Bus Six Cubing Association</div>
+    
+    <a href="#" class="btn-records">Records</a>
 
     <footer>
-        BUS SIX CUBING ASSOCIATION &copy; 2026<br>
-        DESIGNED FOR SPEED.
+        &copy; 2026 BUS SIX CUBING
     </footer>
 
     <script>
+        // Clean notification logic
         window.onload = function() {
             const popup = document.getElementById('welcome-popup');
             popup.style.display = 'block';
@@ -214,7 +128,7 @@
                 popup.style.transition = 'opacity 1s ease';
                 popup.style.opacity = '0';
                 setTimeout(() => popup.style.display = 'none', 1000);
-            }, 4000);
+            }, 3000);
         };
     </script>
 </body>
