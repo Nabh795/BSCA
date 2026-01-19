@@ -2,11 +2,22 @@
 <head>
     <title>BSCA Official Website</title>
     <style>
-        /* This makes the button bigger and adds some padding */
+        /* This makes both buttons large and consistent */
         .big-button {
             font-size: 24px;
             padding: 15px 30px;
+            margin: 10px;
             cursor: pointer;
+            width: 300px; /* Gives them equal width */
+        }
+        
+        .content-box {
+            display: none; 
+            margin-top: 20px; 
+            font-size: 20px;
+            background-color: rgba(255, 255, 255, 0.3); /* Light overlay to make text readable */
+            padding: 20px;
+            border-radius: 10px;
         }
     </style>
 </head>
@@ -23,9 +34,21 @@
             <b>BSCA RECORDS</b>
         </button>
 
-        <div id="recordSection" style="display: none; margin-top: 20px; font-size: 20px;">
-            <h3>Records:</h3>
+        <div id="recordSection" class="content-box">
+            <h3>🏆 Records:</h3>
             <p>3x3: Ojas Mahich 2.3</p>
+        </div>
+
+        <br>
+
+        <button class="big-button" onclick="toggleAbout()">
+            <b>ABOUT US</b>
+        </button>
+
+        <div id="aboutSection" class="content-box">
+            <h3>📖 Our Story</h3>
+            <p><b>BSCA (Bus Six Association)</b></p>
+            <p>Formed by 4 kids of Bus Six. We created this association to track our progress and share our passion!</p>
         </div>
     </center>
 
@@ -36,18 +59,30 @@
     
     test();
 
+    // Function for Records
     function toggleRecords() {
         var x = document.getElementById("recordSection");
-        if (x.style.display === "none") {
+        if (x.style.display === "none" || x.style.display === "") {
             x.style.display = "block";
         } else {
             x.style.display = "none";
+        }
+    }
+
+    // Function for About Us
+    function toggleAbout() {
+        var y = document.getElementById("aboutSection");
+        if (y.style.display === "none" || y.style.display === "") {
+            y.style.display = "block";
+        } else {
+            y.style.display = "none";
         }
     }
     </script>
 
 </body>
 </html>
+
 
 
 
