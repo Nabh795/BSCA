@@ -1,237 +1,54 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BSCA | Bus Six Cubing Association</title>
-    <img src="sayoz nerushomy.jpg" width="300" height="200"></img>
+    <title>BSCA Official Website</title>
     <style>
-        :root {
-            --cube-blue: #0046ad;
-            --cube-green: #009b48;
-            --cube-red: #b71234;
-            --cube-orange: #ff5800;
-            --cube-yellow: #ffd500;
-            --bg-dark: #0a0a0a;
-            --text-main: #ffffff;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', 'Segoe UI', sans-serif;
-        }
-
-        body {
-            background-color: var(--bg-dark);
-            color: var(--text-main);
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-            text-align: center;
-        }
-
-        /* Branding */
-        .logo {
-            font-size: clamp(3rem, 10vw, 5rem);
-            font-weight: 900;
-            letter-spacing: -2px;
-            margin-bottom: 5px;
-            background: linear-gradient(45deg, var(--cube-red), var(--cube-orange), var(--cube-yellow));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .sub-text {
-            color: #888;
-            text-transform: uppercase;
-            letter-spacing: 5px;
-            font-size: 0.9rem;
-            margin-bottom: 40px;
-        }
-
-        /* Buttons Container */
-        .btn-group {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .btn {
-            padding: 18px 45px;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 800;
-            font-size: 1.1rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: all 0.2s ease;
+        /* This makes the button bigger and adds some padding */
+        .big-button {
+            font-size: 24px;
+            padding: 15px 30px;
             cursor: pointer;
-            border: none;
-        }
-
-        .btn-records {
-            background: var(--cube-orange);
-            color: white;
-            box-shadow: 0 10px 20px rgba(255, 88, 0, 0.2);
-        }
-
-        .btn-about {
-            background: transparent;
-            color: white;
-            border: 2px solid white;
-        }
-
-        .btn:hover {
-            transform: translateY(-3px);
-            filter: brightness(1.1);
-        }
-
-        /* About Us Modal (Hidden by default) */
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            display: none;
-            justify-content: center;
-            align-items: center;
-            z-index: 2000;
-            backdrop-filter: blur(8px);
-        }
-
-        .modal-content {
-            background: #1a1a1a;
-            padding: 40px;
-            border-radius: 15px;
-            max-width: 500px;
-            width: 90%;
-            border: 1px solid #333;
-            position: relative;
-            animation: popIn 0.3s ease-out;
-        }
-
-        @keyframes popIn {
-            from { transform: scale(0.8); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
-        }
-
-        .modal-content h2 {
-            color: var(--cube-yellow);
-            margin-bottom: 20px;
-            font-size: 2rem;
-        }
-
-        .modal-content p {
-            color: #ccc;
-            line-height: 1.8;
-            margin-bottom: 25px;
-            font-size: 1.1rem;
-        }
-
-        .close-btn {
-            background: var(--cube-red);
-            color: white;
-            border: none;
-            padding: 10px 25px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-        }
-
-        /* Welcome Notification */
-        #welcome-popup {
-            position: fixed;
-            top: 30px;
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            padding: 10px 25px;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            display: none;
-            animation: fadeInDown 0.5s ease;
-        }
-
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        footer {
-            position: absolute;
-            bottom: 30px;
-            color: #444;
-            font-size: 0.7rem;
-            letter-spacing: 2px;
         }
     </style>
 </head>
-<body>
+<body bgcolor="yellow"> 
 
-    <div id="welcome-popup">BSCA SYSTEM ACTIVE</div>
+    <center>
+        <h1>WELCOME TO BSCA!</h1>
 
-    <div class="logo">BSCA</div>
-    <div class="sub-text">Bus Six Cubing Association</div>
-    
-    <div class="btn-group">
-        <button class="btn btn-records">Records</button>
-        <button class="btn btn-about" onclick="toggleModal()">About Us</button>
-    </div>
+        <img src="sayoz nerushomy.jpg" width="200" height="300">
 
-    <div class="modal-overlay" id="aboutModal">
-        <div class="modal-content">
-            <h2>Our Story</h2>
-            <p>
-                BSCA was formed by 3 kids from <strong>Bus Six</strong> who share a massive passion for cubing. 
-                What started as just solving cubes on the way to school turned into an official association. 
-                We're all about speed, precision, and the cubing community!
-            </p>
-            <button class="close-btn" onclick="toggleModal()">Close</button>
+        <br><br><br>
+
+        <button class="big-button" onclick="toggleRecords()">
+            <b>BSCA RECORDS</b>
+        </button>
+
+        <div id="recordSection" style="display: none; margin-top: 20px; font-size: 20px;">
+            <h3>Records:</h3>
+            <p>3x3: Ojas Mahich 2.3</p>
         </div>
-    </div>
-
-    <footer>
-        &copy; 2026 BUS SIX CUBING ASSOCIATION
-    </footer>
+    </center>
 
     <script>
-        // Welcome notification
-        window.onload = function() {
-            const popup = document.getElementById('welcome-popup');
-            popup.style.display = 'block';
-            setTimeout(() => {
-                popup.style.opacity = '0';
-                popup.style.transition = 'opacity 1s ease';
-            }, 3000);
-        };
+    function test() {
+        alert("Hello, welcome to the official website of BSCA");
+    }
+    
+    test();
 
-        // Modal Toggle Function
-        function toggleModal() {
-            const modal = document.getElementById('aboutModal');
-            if (modal.style.display === 'flex') {
-                modal.style.display = 'none';
-            } else {
-                modal.style.display = 'flex';
-            }
+    function toggleRecords() {
+        var x = document.getElementById("recordSection");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
         }
-
-        // Close modal if user clicks outside the content box
-        window.onclick = function(event) {
-            const modal = document.getElementById('aboutModal');
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
+    }
     </script>
+
 </body>
 </html>
+
 
 
 
